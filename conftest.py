@@ -4,14 +4,10 @@ import pytest
 def pytest_addoption(parser):
     parser.addoption('--language', action = 'store', default = 'ru', help = 'Choose language: en or rus or es or the other')
 
-
 @pytest.fixture
 def browser(request):
     language = request.config.getoption("language")
-    # Позитивные тесты
-    link = f"http://selenium1py.pythonanywhere.com/{language}/catalogue/coders-at-work_207/"
-    # Негативные тесты
-    # link = f"http://selenium1py.pythonanywhere.com/{language}/catalogue/"
+    link = f"http://selenium1py.pythonanywhere.com/{language}"
     browser = webdriver.Chrome()
     browser.maximize_window()
     browser.implicitly_wait(5)
