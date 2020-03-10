@@ -1,6 +1,7 @@
 from pages.base_page import BasePage
 from pages.locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
 
     def should_be_add_to_basket_button(self):
@@ -29,4 +30,8 @@ class ProductPage(BasePage):
     def should_be_cart_value(self):
         assert self.give_basket_price() == self.give_product_price(), "The cost of the basket doesn't match the price of the product"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADD_MESSAGE), "Success message appeared but shouldnt"
 
+    def should_message_to_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.ADD_MESSAGE), "Message did not disappear after adding product to basket"
