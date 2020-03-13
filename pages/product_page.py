@@ -22,13 +22,14 @@ class ProductPage(BasePage):
         cart_price = self.browser.find_element(*ProductPageLocators.CART_PRICE).text
         return cart_price
 
-    def should_be_success_message(self):
-        self.product_name = self.give_product_name()
+    def should_be_success_message(self, name):
+        self.name = name
         message = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
-        assert  self.product_name in message, "Product is not added to basket"
+        assert  self.name in message, "Product is not added to basket"
 
-    def should_be_cart_value(self):
-        assert self.give_basket_price() == self.give_product_price(), "The cost of the basket doesn't match the price of the product"
+    def should_be_cart_value(self, price):
+        self.price = price
+        assert self.give_basket_price() == self.price, "The cost of the basket doesn't match the price of the product"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.ADD_MESSAGE), "Success message appeared but shouldnt"
