@@ -24,8 +24,8 @@ class ProductPage(BasePage):
 
     def should_be_success_message(self, name):
         self.name = name
-        message = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
-        assert  self.name in message, "Product is not added to basket"
+        name_in_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE).text
+        assert  self.name == name_in_message, "Product is not added to basket"
 
     def should_be_cart_value(self, price):
         self.price = price

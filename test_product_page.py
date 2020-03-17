@@ -25,7 +25,7 @@ def test_guest_cant_see_success_message(browser):
 @pytest.mark.need_review
 @pytest.mark.parametrize('link', links)
 def test_guest_can_add_product_to_basket(browser, link):
-    # link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
+    # link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7"
     page = ProductPage(browser, link)
     page.open()
     page.should_be_add_to_basket_button()
