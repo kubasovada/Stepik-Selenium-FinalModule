@@ -20,8 +20,9 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form > button")
-    PRODUCT_NAME = (By.CSS_SELECTOR, ".product_page  h1")
+    PRODUCT_NAME = (By.CSS_SELECTOR, "#content_inner div.product_main h1")
     ADD_MESSAGE = (By.CSS_SELECTOR, "#messages .alertinner")
+    PRODUCT_NAME_IN_MESSAGE = (By.CSS_SELECTOR, "#messages .alert-success:first-child .alertinner > strong")
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     CART_PRICE = (By.CSS_SELECTOR, "#messages .alertinner > p:first-child strong")
 
